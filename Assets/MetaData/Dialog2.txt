@@ -1,0 +1,10 @@
+###default
+  - dialog:aaa 
+  - goto:dialog1
+###dialog1
+  - dialog:aaaa
+  - dialog:bbbb
+  - goto:Continue
+###Continue
+  - time:Daytime
+  - dialog:daytime

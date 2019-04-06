@@ -1,0 +1,24 @@
+###default
+  - image:hitcircle2.png
+  - option:
+    $name:a,goto:optionA
+    $name:b,goto:optionB
+    $name:c,goto:optionC
+###optionA
+  - value:{desire:-1}
+  - item:boot
+  - goto:Continue 
+###optionB
+  - value:{desire:-2}
+  - item:desk
+  - goto:Continue
+###optionC
+  - value:{happiness:-3}
+  - goto:Continue 
+###Continue
+  - time:Daytime
+  - dialog:daytime
+  - theme:room
+  - goto:Day2
+###Day2
+  - dialog:aaa
