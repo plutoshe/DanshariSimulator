@@ -16,7 +16,7 @@ public enum GameStatusMode
 public class DialogOption
 {
     public string name, gotoMeta;
-
+ 
     public DialogOption() { name = gotoMeta = ""; }
     public DialogOption(string kvs)
     {
@@ -153,6 +153,9 @@ public class DialogMetaData
 public class GameStatus : MonoBehaviour
 {
     public string defaultMetaDataName;
+    [HideInInspector]
+    public int dayID = 0;
+    public List<string> dayStartGotoName = new List<string> { "default", "Day2", "Day3" };
 
     [HideInInspector]
     public string DialogSentence;
@@ -198,6 +201,18 @@ public class GameStatus : MonoBehaviour
         }
     }
 
+    public void NewDay()
+    {
+        dayID++;
+        if (dayID < dayStartGotoName.Count)
+            GotoMeta(dayStartGotoName[dayID]);
+    }
+
+    public bool HasNewDay()
+    {
+        return dayID + 1 < dayStartGotoName.Count;
+    }
+
     GameStatus()
     {
         Clear();
@@ -207,10 +222,19 @@ public class GameStatus : MonoBehaviour
     {
         MetaData = new DialogMetaData();
         mode = GameStatusMode.Idle;
+        dayID = 0;
+        currentMeta = new List<string>();
+        playerItems = new PlayerItems();
+        currentID = 0;
+        options = new List<DialogOption>();
     }
-
     
-
+    void LoadMetaData(string name)
+    {
+        MetaData.LoadMetaData(name);
+        if(dayID < dayStartGotoName.Count)
+            currentMeta = MetaData.GetMeta(dayStartGotoName[dayID]);
+    }
     // Start is called before the first frame update
     void Awake()
     {
@@ -222,18 +246,7 @@ public class GameStatus : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         Clear();
-        MetaData = new DialogMetaData();
-        MetaData.LoadMetaData(defaultMetaDataName);
-        currentMeta = MetaData.GetMeta("default");
-        playerItems = new PlayerItems();
-        currentID = 0;
-        options = new List<DialogOption>();
-        foreach (var e in currentMeta)
-        {
-            Debug.Log(e);
-        }
-        Debug.Log(currentMeta.Count);
-        AnalysisCurrentStatus();
+        LoadMetaData(defaultMetaDataName);
     }
 
     private void Start()
@@ -370,6 +383,7 @@ public class GameStatus : MonoBehaviour
         GameStatusMode oldMode = mode;
         mode = GameStatusMode.Idle;
         options.Clear();
+        theme = "";
         DialogImage = null;
         var kvs = SplitByDelim(status, ',');
         foreach (var kv in kvs)

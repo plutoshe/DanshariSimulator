@@ -19,6 +19,12 @@
   - time:Daytime
   - dialog:daytime
   - theme:room
-  - goto:Day2
 ###Day2
-  - dialog:aaa
+  - dialog:Day2
+  - theme:room
+###Day3
+  - dialog:Day3
+  - theme:room
+###Day4
+  - dialog:Day4
+  - theme:room

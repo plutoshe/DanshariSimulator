@@ -10,7 +10,8 @@ public class DoneButton : MonoBehaviour
 
     void OnClick()
     {
-        GameStatus.Instance.GotoMeta(gotoName);
+        StackSceneManager.Instance.LoadSceneInStack(gotoName);
+        //GameStatus.Instance.GotoMeta(gotoName);
     }
 
     // Start is called before the first frame update
