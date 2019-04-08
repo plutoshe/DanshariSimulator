@@ -44,6 +44,8 @@ public class MainPlayUI : MonoBehaviour
         TimeText = transform.FindDeepChild("Time").FindDeepChild("Text").GetComponent<TextMeshProUGUI>();
         OptionPanel = transform.FindDeepChild("Option").gameObject;
         OptionPrefab = transform.FindDeepChild("Option").FindDeepChild("ButtonSample").gameObject;
+        GameStatus.Instance.Activate();
+        GameStatus.Instance.AnalysisCurrentStatus();
         RefreshUI();
     }
 

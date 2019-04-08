@@ -20,6 +20,10 @@ public class DialogOption
     public DialogOption() { name = gotoMeta = ""; }
     public DialogOption(string kvs)
     {
+        kvs = DialogMetaData.CleanStatusValue(kvs);
+        if (kvs[0] == '{') kvs = kvs.Remove(0, 1);
+        if (kvs[kvs.Length - 1] == '}') kvs = kvs.Remove(kvs.Length - 1,1);
+        Debug.Log(kvs);
         var optionKVs = kvs.Split(new string[] { "," }, StringSplitOptions.None);
         foreach (var option in optionKVs)
         {
@@ -265,22 +269,42 @@ public class GameStatus : MonoBehaviour
         }
     }
 
-    void Analysis(string status)
+    List<string> SplitByDelim(string status, char delim)
+    {
+        List<string> splitArr = new List<string>();
+        int degree = 0; int reference = 0; int arrDegree = 0;
+        int lastIndex = 0;
+        for (int i = 0; i < status.Length; i++)
+        {
+            if (status[i] == '{') degree++;
+            if (status[i] == '[') arrDegree++;
+            if (status[i] == '}') degree--;
+            if (status[i] == ']') arrDegree--;
+            if (status[i] == '"') reference = 1 - reference;
+            if (status[i] == delim && arrDegree == 0 && degree == 0 && reference == 0)
+            {
+                splitArr.Add(status.Substring(lastIndex, i - lastIndex));
+                lastIndex = i + 1;
+            }
+        }
+        if (lastIndex < status.Length)
+            splitArr.Add(status.Substring(lastIndex, status.Length - lastIndex));
+        return splitArr;
+    }
+
+    void AnalysisKV(string status)
     {
         print("Analysis!");
         var kv = DialogMetaData.GetKeyAndValue(status);
         string key = kv.Key;
         string value = kv.Value;
-        options.Clear();
-        DialogImage = null;
+
         switch (key)
         {
             case "theme":
-                if (theme.ToLower() != "dialog")
-                    mode = GameStatusMode.SelectItem;
-                else
-                    mode = GameStatusMode.Dialog;
                 theme = value;
+                if (theme != "dialog")
+                    mode = GameStatusMode.SelectItem;
                 break;
             case "item":
                 playerItems.Add(new PlayerItem(value));
@@ -288,24 +312,21 @@ public class GameStatus : MonoBehaviour
                 break;
 
             case "dialog":
-                mode = GameStatusMode.Dialog;
+                if (value[0] == '"') value = value.Remove(0, 1);
+                if (value[value.Length - 1] == '"') value = value.Remove(value.Length - 1, 1);
                 DialogSentence = value;
                 break;
             case "backgroundImage":
                 BackgroundImage = DialogMetaData.LoadImage(value);
-                NextStatus();
                 break;
             case "dialogImage":
             case "image":
-                mode = GameStatusMode.Dialog;
                 DialogImage = DialogMetaData.LoadImage(value);
                 break;
             case "time":
                 DialogTime = value;
-                NextStatus();
                 break;
             case "value":
-                mode = GameStatusMode.Dialog;
                 var valueChange = value;
                 int start = valueChange.IndexOf("{");
                 int end = valueChange.IndexOf("}");
@@ -315,25 +336,59 @@ public class GameStatus : MonoBehaviour
             case "option":
                 mode = GameStatusMode.Option;
                 valueChange = value;
-                //start = valueChange.IndexOf("{");
-                //end = valueChange.IndexOf("}");
-                //valueChange.Substring(start + 1, end - start - 1);
-                var values = valueChange.Split(new string[] { "$" }, StringSplitOptions.None);
-                
+                print(valueChange);
+                start = valueChange.IndexOf("[");
+                end = valueChange.IndexOf("]");
+                valueChange = valueChange.Substring(start + 1, end - start - 1);
+                var values = SplitByDelim(valueChange, ',');
                 foreach (var valueStatus in values)
                 {
                     if (DialogMetaData.CleanStatusValue(valueStatus) == "")
                         continue;
                     options.Add(new DialogOption(valueStatus));
                 }
+                print(options.Count);
                 break;
             case "mode":
-
+                switch (value.ToLower())
+                {
+                    case "dialog": mode = GameStatusMode.Dialog;break;
+                    case "option": mode = GameStatusMode.Option;break;
+                    case "selectitem": mode = GameStatusMode.SelectItem;break;
+                    case "idle": mode = GameStatusMode.Idle;break;
+                }
                 break;
             case "goto":
+                mode = GameStatusMode.Dialog;
                 GotoMeta(value);
                 break;
         }
+    }
+    
+    void Analysis(string status)
+    {
+        GameStatusMode oldMode = mode;
+        mode = GameStatusMode.Idle;
+        options.Clear();
+        DialogImage = null;
+        var kvs = SplitByDelim(status, ',');
+        foreach (var kv in kvs)
+        {
+            AnalysisKV(kv);
+        }
+        
+        if (mode == GameStatusMode.Idle)
+        {
+            if (oldMode == GameStatusMode.Option || oldMode == GameStatusMode.SelectItem)
+                mode = GameStatusMode.Dialog;
+            else mode = oldMode;
+        }
+        
+    }
+
+    public void Activate()
+    {
+        mode = GameStatusMode.Dialog;
     }
 
     public bool UntilGoto()
