@@ -45,12 +45,14 @@ public class GraphicsCursor : MonoBehaviour
                 {
                     selectObject = result.gameObject;
                     selectOffset = selectObject.transform.position - Input.mousePosition;
-                    if (oldSelectObject && oldSelectObject != selectObject)
-                        oldSelectObject.GetComponent<PlayerItemBehavious>().CancelShow();
-                    oldPosition = selectObject.transform.position;
+                    
+                    
                     //timelineUI.editingBulletStatus.SetSelectOffset(m_PointerEventData.position);
                 }
             }
+            if (oldSelectObject && oldSelectObject != selectObject)
+                oldSelectObject.GetComponent<PlayerItemBehavious>().CancelShow();
+            oldPosition = selectObject.transform.position;
         }
         else if (Input.GetKey(KeyCode.Mouse0))
         {
