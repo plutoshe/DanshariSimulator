@@ -15,6 +15,8 @@ public class MainPlayUI : MonoBehaviour
     GameObject OptionPanel;
     [HideInInspector]
     GameObject DisplayImage;
+    [HideInInspector]
+    Image Photo;
 
     public GameObject OptionPrefab;
 
@@ -39,6 +41,8 @@ public class MainPlayUI : MonoBehaviour
     void Start()
     {
         print(transform.FindDeepChild("Dialog").name);
+
+        Photo = transform.FindDeepChild("Photo").GetComponent<Image>();
         DisplayImage = transform.FindDeepChild("Dialog").FindDeepChild("Image").gameObject;
         DialogText = transform.FindDeepChild("Dialog").FindDeepChild("Sentence").GetComponent<TextMeshProUGUI>();
         TimeText = transform.FindDeepChild("Time").FindDeepChild("Text").GetComponent<TextMeshProUGUI>();
@@ -63,6 +67,10 @@ public class MainPlayUI : MonoBehaviour
         {
             if (child.name != "ButtonSample")
                 Destroy(child.gameObject);
+        }
+        if (GameStatus.Instance.PhotoImage)
+        {
+            Photo.sprite = GameStatus.Instance.PhotoImage;
         }
         if (GameStatus.Instance.DialogImage)
         {

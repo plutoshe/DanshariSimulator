@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public class DoneButton : MonoBehaviour
+public class CharacterSelectionButton : MonoBehaviour
 {
-    public string gotoName;
+    public string GotoName;
+    public string SceneName;
 
     void OnClick()
     {
-        StackSceneManager.Instance.LoadSceneInStack(gotoName);
-        //GameStatus.Instance.GotoMeta(gotoName);
+        GameStatus.Instance.GotoMeta(GotoName);
+        StackSceneManager.Instance.LoadSceneInStack(SceneName);
     }
 
     // Start is called before the first frame update

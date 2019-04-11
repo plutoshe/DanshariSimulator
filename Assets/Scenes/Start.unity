@@ -931,7 +931,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7309d647efa85b346aba28e540083035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GotoSceneName: MainPlay
+  GotoSceneName: CharacterSelection
 --- !u!1 &1288628675
 GameObject:
   m_ObjectHideFlags: 0

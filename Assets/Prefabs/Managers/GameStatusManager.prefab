@@ -43,9 +43,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d041f568d221fe4bb861ae988b0d279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMetaDataName: Dialog1
+  defaultMetaDataName: NewOne
+  dayID: 0
+  dayStartGotoName:
+  - default
+  - Day2
+  - Day3
   DialogSentence: 
+  DialogImage: {fileID: 0}
+  BackgroundImage: {fileID: 0}
   DialogTime: 
+  theme: 
   Desire: 0
   Satisfiction: 0
   LivingQuality: 0

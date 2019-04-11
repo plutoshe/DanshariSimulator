@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
 public class PlayerItemBehavious : MonoBehaviour
 {
     public int a, b, c, d;
-
-    void OnClick()
+    public bool finished = false;
+    public void OnClick()
     {
+        if (finished) return;
         //GameStatus.Instance.UntilGoto();
         //GameStatus.Instance.GotoMeta(gotoName);
         transform.Find("OperationPanel").gameObject.SetActive(true);
@@ -20,6 +20,14 @@ public class PlayerItemBehavious : MonoBehaviour
     public void CancelShow()
     {
         transform.Find("OperationPanel").gameObject.SetActive(false);
+    }
+
+    public void Organize()
+    {
+        print("!!!");
+        finished = true;
+        transform.position = transform.FindDeepChild("OrganizedPoint").transform.position;
+        CancelShow();
     }
 
     public void Drop()
@@ -33,7 +41,7 @@ public class PlayerItemBehavious : MonoBehaviour
     void Start()
     {
         transform.Find("OperationPanel").gameObject.SetActive(false);
-        GetComponent<Button>().onClick.AddListener(OnClick);
+        //GetComponent<Button>().onClick.AddListener(OnClick);
     }
 
     // Update is called once per frame

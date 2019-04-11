@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.IO;
+﻿using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
@@ -42,6 +41,8 @@ public class DialogOption
 public class PlayerItem
 {
     public string name;
+    public Dictionary<string, string> value;
+
     public PlayerItem(string value)
     {
         name = value;
@@ -153,6 +154,7 @@ public class DialogMetaData
 public class GameStatus : MonoBehaviour
 {
     public string defaultMetaDataName;
+    public string itemMetaDataName;
     [HideInInspector]
     public int dayID = 0;
     public List<string> dayStartGotoName = new List<string> { "default", "Day2", "Day3" };
@@ -161,6 +163,10 @@ public class GameStatus : MonoBehaviour
     public string DialogSentence;
     [HideInInspector]
     public Sprite DialogImage;
+
+    [HideInInspector]
+    public Sprite PhotoImage;
+
     [HideInInspector]
     public Sprite BackgroundImage;
 
@@ -187,6 +193,10 @@ public class GameStatus : MonoBehaviour
 
     [HideInInspector]
     List<string> currentMeta;
+
+    [HideInInspector]
+    public Dictionary<string, string> ExtraValue;
+
     [HideInInspector]
     int currentID;
 
@@ -227,6 +237,7 @@ public class GameStatus : MonoBehaviour
         playerItems = new PlayerItems();
         currentID = 0;
         options = new List<DialogOption>();
+        ExtraValue = new Dictionary<string, string>();
     }
     
     void LoadMetaData(string name)
@@ -311,9 +322,14 @@ public class GameStatus : MonoBehaviour
         var kv = DialogMetaData.GetKeyAndValue(status);
         string key = kv.Key;
         string value = kv.Value;
-
+        print(key);
+        print(value);
+        print("==========");
         switch (key)
         {
+            case "photo":
+                PhotoImage = DialogMetaData.LoadImage(value);
+                break;
             case "theme":
                 theme = value;
                 if (theme != "dialog")
@@ -321,7 +337,6 @@ public class GameStatus : MonoBehaviour
                 break;
             case "item":
                 playerItems.Add(new PlayerItem(value));
-                NextStatus();
                 break;
 
             case "dialog":
@@ -374,6 +389,10 @@ public class GameStatus : MonoBehaviour
             case "goto":
                 mode = GameStatusMode.Dialog;
                 GotoMeta(value);
+                break;
+            default:
+                ExtraValue.Add(key, value);
+                print("extra");
                 break;
         }
     }
@@ -462,7 +481,11 @@ public class GameStatus : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-            print(currentMeta[currentID]);
+            for (int i = 0; i < currentMeta.Count; i++)
+            {
+                print(currentMeta[i]);
+            }
+            //print(currentMeta[currentID]);
         }
     }
 
