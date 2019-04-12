@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+public class StatusCollection {
+    public GameStatus StackGameStatus;
+}
 
 public class StackSceneManager : MonoBehaviour
 {
     List<string> SceneStack;
+    List<StatusCollection> savingStatus;
     string CurrentSceneName
     {
         get
@@ -32,6 +36,7 @@ public class StackSceneManager : MonoBehaviour
     void Clear()
     {
         SceneStack = new List<string>();
+        savingStatus = new List<StatusCollection>();
     }
 
     private static StackSceneManager _instance;
@@ -56,6 +61,10 @@ public class StackSceneManager : MonoBehaviour
 
     public void LoadSceneInStack(string sceneName)
     {
+        var newStatus = new StatusCollection();
+        newStatus.StackGameStatus = new GameStatus();
+        newStatus.StackGameStatus.DeepClone(GameStatus.Instance);
+        savingStatus.Add(newStatus);
         SceneStack.Add(sceneName);
         LoadScene(CurrentSceneName);
     }
@@ -65,6 +74,8 @@ public class StackSceneManager : MonoBehaviour
         if (SceneStack.Count > 1)
         {
             SceneStack.RemoveAt(SceneStack.Count - 1);
+            GameStatus.Instance.DeepClone(savingStatus.Last().StackGameStatus);
+            savingStatus.RemoveAt(savingStatus.Count - 1);
             LoadScene(CurrentSceneName);
         }
         else
@@ -78,6 +89,9 @@ public class StackSceneManager : MonoBehaviour
         if (SceneStack.Count > 1)
         {
             SceneStack.RemoveRange(1, SceneStack.Count - 1);
+            
+            GameStatus.Instance.DeepClone(savingStatus[0].StackGameStatus);
+            savingStatus.RemoveRange(0, savingStatus.Count);
             LoadScene(CurrentSceneName);
         }
     }

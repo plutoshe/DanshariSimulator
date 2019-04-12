@@ -73,7 +73,8 @@ public class PlayerItemBehavious : MonoBehaviour
         // Start is called before the first frame update
     void Start()
     {
-        transform.Find("OperationPanel").gameObject.SetActive(false);
+        if (transform.Find("OperationPanel"))
+            transform.Find("OperationPanel").gameObject.SetActive(false);
         //GetComponent<Button>().onClick.AddListener(OnClick);
     }
 

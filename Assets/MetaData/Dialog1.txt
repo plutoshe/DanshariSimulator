@@ -5,15 +5,15 @@
     {name:b,goto:optionB},
     {name:c,goto:optionC}],dialog:"aaaa"
 ###optionA
-  - value:{desire:-1}
+  - valueset:{desire:-1}
   - item:boot
   - goto:Continue 
 ###optionB
-  - value:{desire:-2}
+  - valueset:{desire:-2}
   - item:desk
   - goto:Continue
 ###optionC
-  - value:{happiness:-3}
+  - valueset:{happiness:-3}
   - goto:Continue 
 ###Continue
   - time:Daytime

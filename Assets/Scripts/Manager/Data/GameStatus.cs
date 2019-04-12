@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
+[System.Serializable]
 public enum GameStatusMode
 {
     Idle = 0,
@@ -11,7 +11,7 @@ public enum GameStatusMode
     SelectItem,
     EndOfDay,
 }
-
+[System.Serializable]
 public class DialogOption
 {
     public string name, gotoMeta;
@@ -38,6 +38,7 @@ public class DialogOption
     }
 }
 
+[System.Serializable]
 public class PlayerItem
 {
     public string name;
@@ -76,7 +77,7 @@ public class PlayerItem
         }
     }
 }
-
+[System.Serializable]
 public class PlayerItems
 {
     public Dictionary<string, PlayerItem> items;
@@ -109,7 +110,7 @@ public class PlayerItems
     }
 }
 
-
+[System.Serializable]
 public class DialogMetaData
 {
     public DialogMetaData()
@@ -252,6 +253,29 @@ public class GameStatus : MonoBehaviour
     [HideInInspector]
     public int CurrentID { get; private set; }
 
+    public void DeepClone(GameStatus gs)
+    {
+        CurrentID = gs.CurrentID;
+        ExtraValue = DeepCloneUtil.DeepClone(gs.ExtraValue);
+        CurrentMeta = DeepCloneUtil.DeepClone(gs.CurrentMeta);
+        mode = gs.mode;
+        MetaData = DeepCloneUtil.DeepClone(gs.MetaData);
+        Living = gs.Living;
+        Satisfaction = gs.Satisfaction;
+        Stress = gs.Stress;
+        PlayerOwningItems = DeepCloneUtil.DeepClone(gs.PlayerOwningItems);
+        theme = gs.theme;
+        options = DeepCloneUtil.DeepClone(gs.options);
+        DialogTime = gs.DialogTime;
+        BackgroundImage = gs.BackgroundImage;
+        PhotoImage = gs.PhotoImage;
+        DialogImage = gs.DialogImage;
+        DialogSentence = gs.DialogSentence;
+        dayStartGotoName = DeepCloneUtil.DeepClone(gs.dayStartGotoName);
+        DayID = gs.DayID;
+
+    }
+
     public void SetDialogSentence(string dialogSetence)
     {
         DialogSentence = dialogSetence;
@@ -280,7 +304,7 @@ public class GameStatus : MonoBehaviour
         return DayID + 1 < dayStartGotoName.Count;
     }
 
-    GameStatus()
+    public GameStatus()
     {
         Clear();
     }

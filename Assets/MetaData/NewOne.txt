@@ -1,14 +1,14 @@
 ###John
   - value:{desire:-1},name:John,
     gender:male,background:none,
-    photo:osulogo.png
-  - goto:JohnItemList
+    photo:osulogo.png,
+    goto:JohnItemList
 ###Bob
   - value:{desire:-2},
-    photo:hitcircle2.png
-  - goto:BobItemList
+    photo:hitcircle2.png,
+    goto:BobItemList
 ###Alice
   - value:{happiness:-3},
-  - goto:AliceItemList
+    goto:AliceItemList
 ###Continue
   - theme:room
