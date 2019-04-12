@@ -8,12 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Start.unity
     guid: 212234fb21dc7dd43a0cc06e79093c8b
-  - enabled: 1
-    path: Assets/Scenes/Conclusion1.unity
-    guid: bbd53e44d70715447aa96e70b643421d
-  - enabled: 1
-    path: Assets/Scenes/MainPlay1.unity
-    guid: ce222053c9a3c9746bdd9485e7305907
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/CharacterDemonstration.unity
     guid: 892f6a4c53205e5408ba5a3077b73b9f
@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RoomPlay.unity
     guid: 4ee87ece4d7e50b48a978aa023bbb955
+  - enabled: 1
+    path: Assets/Scenes/MainPlay.unity
+    guid: 9d1a306357142874599f35db94ae87c4
   m_configObjects: {}
