@@ -41,18 +41,22 @@ public class GraphicsCursor : MonoBehaviour
             //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
             foreach (RaycastResult result in results)
             {
+                if (result.gameObject.name=="Organize")
+                {
+                    oldSelectObject.GetComponent<PlayerItemBehavious>().Organize();
+                    return;
+                }
+            }
+            foreach (RaycastResult result in results)
                 if (result.gameObject.CompareTag("PlayerItem") && !result.gameObject.GetComponent<PlayerItemBehavious>().finished)
                 {
                     selectObject = result.gameObject;
                     selectOffset = selectObject.transform.position - Input.mousePosition;
-                    
-                    
-                    //timelineUI.editingBulletStatus.SetSelectOffset(m_PointerEventData.position);
                 }
-            }
             if (oldSelectObject && oldSelectObject != selectObject)
                 oldSelectObject.GetComponent<PlayerItemBehavious>().CancelShow();
-            oldPosition = selectObject.transform.position;
+            if (selectObject)
+                oldPosition = selectObject.transform.position;
         }
         else if (Input.GetKey(KeyCode.Mouse0))
         {
@@ -77,7 +81,8 @@ public class GraphicsCursor : MonoBehaviour
             {
                 if (result.gameObject.name == "Trash")
                 {
-                    GameStatus.Instance.playerItems.Remove(selectObject.name.ToLower());
+                    selectObject.GetComponent<PlayerItemBehavious>().Drop();
+                    //GameStatus.Instance.playerItems.Remove(selectObject.name.ToLower());
                     Destroy(selectObject);
                     isDestroy = true;
                     oldSelectObject = null;
@@ -86,11 +91,13 @@ public class GraphicsCursor : MonoBehaviour
 
                
             }
-            
-            if (!isDestroy)
-                if (selectObject && oldPosition == selectObject.transform.position)
-                    selectObject.GetComponent<PlayerItemBehavious>().OnClick();
 
+            if (!isDestroy)
+                if (selectObject) 
+                    if (oldPosition == selectObject.transform.position)
+                        selectObject.GetComponent<PlayerItemBehavious>().OnClick();
+                    else
+                        selectObject.transform.position = oldPosition;
             selectObject = null;
             
         }

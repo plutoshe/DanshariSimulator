@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
+[System.Serializable]
 public enum GameStatusMode
 {
     Idle = 0,
@@ -11,11 +11,11 @@ public enum GameStatusMode
     SelectItem,
     EndOfDay,
 }
-
+[System.Serializable]
 public class DialogOption
 {
     public string name, gotoMeta;
- 
+    
     public DialogOption() { name = gotoMeta = ""; }
     public DialogOption(string kvs)
     {
@@ -38,17 +38,46 @@ public class DialogOption
     }
 }
 
+[System.Serializable]
 public class PlayerItem
 {
     public string name;
-    public Dictionary<string, string> value;
+    public Dictionary<string, string> extraAttr;
+
+    public void Clear()
+    {
+        extraAttr = new Dictionary<string, string>();
+        name = "";
+    }
+
+    public string GetAttr(string attrName)
+    {
+        string lowerAttrName = attrName.ToLower();
+        if (lowerAttrName == "name")
+            return name;
+        else if (extraAttr.ContainsKey(lowerAttrName))
+            return extraAttr[lowerAttrName];
+        return "";
+    }
 
     public PlayerItem(string value)
     {
-        name = value;
+        Clear();
+        string[] values = value.Split(new string[] { "," }, StringSplitOptions.None);
+        foreach (var valueStatus in values)
+        {
+            var kv = DialogMetaData.GetKeyAndValue(valueStatus);
+            switch (kv.Key.ToLower())
+            {
+                case "name": name = kv.Value.ToLower(); break;
+                default:
+                    extraAttr[kv.Key.ToLower()] = kv.Value;
+                    break;
+            }
+        }
     }
 }
-
+[System.Serializable]
 public class PlayerItems
 {
     public Dictionary<string, PlayerItem> items;
@@ -60,12 +89,19 @@ public class PlayerItems
 
     public void Add(PlayerItem item)
     {
-        items.Add(item.name, item);
+        items[item.name] = item;
     }
 
     public bool Contains(string key)
     {
         return items.ContainsKey(key);
+    }
+
+    public PlayerItem GetPlayerItem(string key)
+    {
+        if (Contains(key.ToLower()))
+            return items[key.ToLower()];
+        return null;
     }
 
     public void Remove(string key)
@@ -74,9 +110,19 @@ public class PlayerItems
     }
 }
 
-
+[System.Serializable]
 public class DialogMetaData
 {
+    public DialogMetaData()
+    {
+        Clear();
+    }
+
+    public void Clear()
+    {
+        statusSet = new Dictionary<string, List<string>>();
+    }
+
     public static string CleanStatusValue(string status)
     {
         int startID = 0, endID = status.Length - 1;
@@ -121,10 +167,15 @@ public class DialogMetaData
 
     public Dictionary<string, List<string>> statusSet;
 
-    public void LoadMetaData(string defaultMetaDataName)
+    public void NewMetaData(string metaDataName)
     {
-        statusSet = new Dictionary<string, List<string>>();
-        var path = Path.Combine("Assets/MetaData", defaultMetaDataName + ".txt");
+        Clear();
+        LoadMetaData(metaDataName);
+    }
+
+    public void LoadMetaData(string metaDataName)
+    {
+        var path = Path.Combine("Assets/MetaData", metaDataName + ".txt");
 
         using (StreamReader streamReader = File.OpenText(path))
         {
@@ -156,49 +207,79 @@ public class GameStatus : MonoBehaviour
     public string defaultMetaDataName;
     public string itemMetaDataName;
     [HideInInspector]
-    public int dayID = 0;
+    public int DayID { get; private set; } = 0;
+
     public List<string> dayStartGotoName = new List<string> { "default", "Day2", "Day3" };
 
     [HideInInspector]
-    public string DialogSentence;
-    [HideInInspector]
-    public Sprite DialogImage;
+    public string DialogSentence { get; private set; } = "";
 
     [HideInInspector]
-    public Sprite PhotoImage;
+    public Sprite DialogImage { get; private set; }
 
     [HideInInspector]
-    public Sprite BackgroundImage;
+    public Sprite PhotoImage { get; private set; }
 
     [HideInInspector]
-    public string DialogTime;
+    public Sprite BackgroundImage { get; private set; }
 
     [HideInInspector]
-    public List<DialogOption> options;
+    public string DialogTime { get; private set; }
 
     [HideInInspector]
-    public string theme;
+    public List<DialogOption> options { get; private set; }
 
     [HideInInspector]
-    public PlayerItems playerItems;
+    public string theme { get; private set; } = "";
 
     [HideInInspector]
-    public int Desire, Satisfiction, LivingQuality, Happiness;
+    public PlayerItems PlayerOwningItems { get; private set; }
 
     [HideInInspector]
-    public DialogMetaData MetaData;
+    public int Living, Satisfaction, Stress;
 
     [HideInInspector]
-    public GameStatusMode mode;
+    public DialogMetaData MetaData { get; private set; }
 
     [HideInInspector]
-    List<string> currentMeta;
+    public GameStatusMode mode { get; private set; }
 
     [HideInInspector]
-    public Dictionary<string, string> ExtraValue;
+    public List<string> CurrentMeta { get; private set; }
 
     [HideInInspector]
-    int currentID;
+    public Dictionary<string, string> ExtraValue { get; private set; }
+
+    [HideInInspector]
+    public int CurrentID { get; private set; }
+
+    public void DeepClone(GameStatus gs)
+    {
+        CurrentID = gs.CurrentID;
+        ExtraValue = DeepCloneUtil.DeepClone(gs.ExtraValue);
+        CurrentMeta = DeepCloneUtil.DeepClone(gs.CurrentMeta);
+        mode = gs.mode;
+        MetaData = DeepCloneUtil.DeepClone(gs.MetaData);
+        Living = gs.Living;
+        Satisfaction = gs.Satisfaction;
+        Stress = gs.Stress;
+        PlayerOwningItems = DeepCloneUtil.DeepClone(gs.PlayerOwningItems);
+        theme = gs.theme;
+        options = DeepCloneUtil.DeepClone(gs.options);
+        DialogTime = gs.DialogTime;
+        BackgroundImage = gs.BackgroundImage;
+        PhotoImage = gs.PhotoImage;
+        DialogImage = gs.DialogImage;
+        DialogSentence = gs.DialogSentence;
+        dayStartGotoName = DeepCloneUtil.DeepClone(gs.dayStartGotoName);
+        DayID = gs.DayID;
+
+    }
+
+    public void SetDialogSentence(string dialogSetence)
+    {
+        DialogSentence = dialogSetence;
+    }
 
     private static GameStatus _instance;
     public static GameStatus Instance
@@ -213,17 +294,17 @@ public class GameStatus : MonoBehaviour
 
     public void NewDay()
     {
-        dayID++;
-        if (dayID < dayStartGotoName.Count)
-            GotoMeta(dayStartGotoName[dayID]);
+        DayID++;
+        if (DayID < dayStartGotoName.Count)
+            GotoMeta(dayStartGotoName[DayID]);
     }
 
     public bool HasNewDay()
     {
-        return dayID + 1 < dayStartGotoName.Count;
+        return DayID + 1 < dayStartGotoName.Count;
     }
 
-    GameStatus()
+    public GameStatus()
     {
         Clear();
     }
@@ -232,10 +313,10 @@ public class GameStatus : MonoBehaviour
     {
         MetaData = new DialogMetaData();
         mode = GameStatusMode.Idle;
-        dayID = 0;
-        currentMeta = new List<string>();
-        playerItems = new PlayerItems();
-        currentID = 0;
+        DayID = 0;
+        CurrentMeta = new List<string>();
+        PlayerOwningItems = new PlayerItems();
+        CurrentID = 0;
         options = new List<DialogOption>();
         ExtraValue = new Dictionary<string, string>();
     }
@@ -243,8 +324,8 @@ public class GameStatus : MonoBehaviour
     void LoadMetaData(string name)
     {
         MetaData.LoadMetaData(name);
-        if(dayID < dayStartGotoName.Count)
-            currentMeta = MetaData.GetMeta(dayStartGotoName[dayID]);
+        if(DayID < dayStartGotoName.Count)
+            CurrentMeta = MetaData.GetMeta(dayStartGotoName[DayID]);
     }
     // Start is called before the first frame update
     void Awake()
@@ -258,6 +339,7 @@ public class GameStatus : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         Clear();
         LoadMetaData(defaultMetaDataName);
+        LoadMetaData(itemMetaDataName);
     }
 
     private void Start()
@@ -269,10 +351,9 @@ public class GameStatus : MonoBehaviour
     {
         switch (valueName.ToLower())
         {
-            case "desire": return Desire;
-            case "satisfiction": return Satisfiction;
-            case "livingquality": return LivingQuality;
-            case "happiness": return Happiness;
+            case "stress": return Stress;
+            case "satisfaction": return Satisfaction;
+            case "living": return Living;
         }
         return 0;
     }
@@ -285,12 +366,18 @@ public class GameStatus : MonoBehaviour
             var kv = DialogMetaData.GetKeyAndValue(valueStatus);
             switch (kv.Key.ToLower())
             {
-                case "desire": Desire += int.Parse(kv.Value); break;
-                case "satisfiction": Satisfiction += int.Parse(kv.Value); break;
-                case "livingquality": LivingQuality += int.Parse(kv.Value); break;
-                case "happiness": Happiness += int.Parse(kv.Value); break;
+                case "stress": Stress += int.Parse(kv.Value); break;
+                case "satisfaction": Satisfaction += int.Parse(kv.Value); break;
+                case "living": Living += int.Parse(kv.Value); break;
             }
         }
+    }
+    void NewValueStatus(string status)
+    {
+        Living = 0;
+        Stress = 0;
+        Satisfaction = 0;
+        UpdateValueStatus(status);
     }
 
     List<string> SplitByDelim(string status, char delim)
@@ -336,7 +423,12 @@ public class GameStatus : MonoBehaviour
                     mode = GameStatusMode.SelectItem;
                 break;
             case "item":
-                playerItems.Add(new PlayerItem(value));
+                //playerItems.Add(new PlayerItem(value));
+                int start = value.IndexOf("{");
+                int end = value.IndexOf("}");
+                value = value.Substring(start + 1, end - start - 1);
+                PlayerOwningItems.Add(new PlayerItem(value));
+
                 break;
 
             case "dialog":
@@ -354,10 +446,17 @@ public class GameStatus : MonoBehaviour
             case "time":
                 DialogTime = value;
                 break;
-            case "value":
+            case "valueset":
                 var valueChange = value;
-                int start = valueChange.IndexOf("{");
-                int end = valueChange.IndexOf("}");
+                start = valueChange.IndexOf("{");
+                end = valueChange.IndexOf("}");
+                valueChange = valueChange.Substring(start + 1, end - start - 1);
+                NewValueStatus(valueChange);
+                break;
+            case "valueupdate":
+                valueChange = value;
+                start = valueChange.IndexOf("{");
+                end = valueChange.IndexOf("}");
                 valueChange = valueChange.Substring(start + 1, end - start - 1);
                 UpdateValueStatus(valueChange);
                 break;
@@ -391,7 +490,7 @@ public class GameStatus : MonoBehaviour
                 GotoMeta(value);
                 break;
             default:
-                ExtraValue.Add(key, value);
+                ExtraValue[key] = value;
                 print("extra");
                 break;
         }
@@ -434,22 +533,22 @@ public class GameStatus : MonoBehaviour
 
     public void AnalysisCurrentStatus()
     {
-        if (currentID < currentMeta.Count)
-            Analysis(currentMeta[currentID]);
+        if (CurrentID < CurrentMeta.Count)
+            Analysis(CurrentMeta[CurrentID]);
     }
 
     public void GotoMeta(string metaName)
     {
         print("goto:" + metaName);
-        currentMeta = MetaData.GetMeta(metaName);
-        currentID = 0;
+        CurrentMeta = MetaData.GetMeta(metaName);
+        CurrentID = 0;
         AnalysisCurrentStatus();
         PersonalEventManager.TriggerEvent("RefreshGameStatusUI");
     }
 
     public void NextStatus()
     {
-        currentID++;
+        CurrentID++;
         AnalysisCurrentStatus();
         
         PersonalEventManager.TriggerEvent("RefreshGameStatusUI");
@@ -481,9 +580,10 @@ public class GameStatus : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-            for (int i = 0; i < currentMeta.Count; i++)
+            GotoMeta("JohnItemList");
+            for (int i = 0; i < CurrentMeta.Count; i++)
             {
-                print(currentMeta[i]);
+                print(CurrentMeta[i]);
             }
             //print(currentMeta[currentID]);
         }
