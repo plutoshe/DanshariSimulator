@@ -41,18 +41,18 @@ public class GraphicsCursor : MonoBehaviour
             //For every result returned, output the name of the GameObject on the Canvas hit by the Ray
             foreach (RaycastResult result in results)
             {
+                if (result.gameObject.name=="Organize")
+                {
+                    oldSelectObject.GetComponent<PlayerItemBehavious>().Organize();
+                    return;
+                }
+            }
+            foreach (RaycastResult result in results)
                 if (result.gameObject.CompareTag("PlayerItem") && !result.gameObject.GetComponent<PlayerItemBehavious>().finished)
                 {
                     selectObject = result.gameObject;
                     selectOffset = selectObject.transform.position - Input.mousePosition;
-                    
-                    
-                    //timelineUI.editingBulletStatus.SetSelectOffset(m_PointerEventData.position);
-                } if (result.gameObject.name=="Organize")
-                {
-                    selectObject.GetComponent<PlayerItemBehavious>().Organize();
                 }
-            }
             if (oldSelectObject && oldSelectObject != selectObject)
                 oldSelectObject.GetComponent<PlayerItemBehavious>().CancelShow();
             if (selectObject)

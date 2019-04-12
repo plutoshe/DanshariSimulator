@@ -88,7 +88,7 @@ public class PlayerItems
 
     public void Add(PlayerItem item)
     {
-        items.Add(item.name, item);
+        items[item.name] = item;
     }
 
     public bool Contains(string key)
@@ -235,7 +235,7 @@ public class GameStatus : MonoBehaviour
     public PlayerItems PlayerOwningItems { get; private set; }
 
     [HideInInspector]
-    public int Desire, Satisfiction, LivingQuality, Happiness;
+    public int Living, Satisfaction, Stress;
 
     [HideInInspector]
     public DialogMetaData MetaData { get; private set; }
@@ -327,10 +327,9 @@ public class GameStatus : MonoBehaviour
     {
         switch (valueName.ToLower())
         {
-            case "desire": return Desire;
-            case "satisfiction": return Satisfiction;
-            case "livingquality": return LivingQuality;
-            case "happiness": return Happiness;
+            case "stress": return Stress;
+            case "satisfaction": return Satisfaction;
+            case "living": return Living;
         }
         return 0;
     }
@@ -343,12 +342,18 @@ public class GameStatus : MonoBehaviour
             var kv = DialogMetaData.GetKeyAndValue(valueStatus);
             switch (kv.Key.ToLower())
             {
-                case "desire": Desire += int.Parse(kv.Value); break;
-                case "satisfiction": Satisfiction += int.Parse(kv.Value); break;
-                case "livingquality": LivingQuality += int.Parse(kv.Value); break;
-                case "happiness": Happiness += int.Parse(kv.Value); break;
+                case "stress": Stress += int.Parse(kv.Value); break;
+                case "satisfaction": Satisfaction += int.Parse(kv.Value); break;
+                case "living": Living += int.Parse(kv.Value); break;
             }
         }
+    }
+    void NewValueStatus(string status)
+    {
+        Living = 0;
+        Stress = 0;
+        Satisfaction = 0;
+        UpdateValueStatus(status);
     }
 
     List<string> SplitByDelim(string status, char delim)
@@ -417,8 +422,15 @@ public class GameStatus : MonoBehaviour
             case "time":
                 DialogTime = value;
                 break;
-            case "value":
+            case "valueset":
                 var valueChange = value;
+                start = valueChange.IndexOf("{");
+                end = valueChange.IndexOf("}");
+                valueChange = valueChange.Substring(start + 1, end - start - 1);
+                NewValueStatus(valueChange);
+                break;
+            case "valueupdate":
+                valueChange = value;
                 start = valueChange.IndexOf("{");
                 end = valueChange.IndexOf("}");
                 valueChange = valueChange.Substring(start + 1, end - start - 1);
@@ -454,7 +466,7 @@ public class GameStatus : MonoBehaviour
                 GotoMeta(value);
                 break;
             default:
-                ExtraValue.Add(key, value);
+                ExtraValue[key] = value;
                 print("extra");
                 break;
         }

@@ -35,6 +35,10 @@ public class PlayerItemBehavious : MonoBehaviour
     public void Organize()
     {
         PlayerItem currentItem = GameStatus.Instance.PlayerOwningItems.GetPlayerItem(gameObject.name);
+        GameStatus.Instance.Stress += int.Parse(currentItem.GetAttr("Organize Stress"));
+        GameStatus.Instance.Living += int.Parse(currentItem.GetAttr("Organize Living"));
+        GameStatus.Instance.Satisfaction += int.Parse(currentItem.GetAttr("Organize Satisfaction"));
+
         GameStatus.Instance.SetDialogSentence(
             "I feel " +
             currentItem.GetAttr("Dialog 06 Organize Stress") + ". I think my room becomes " +
@@ -49,6 +53,10 @@ public class PlayerItemBehavious : MonoBehaviour
     public void Drop()
     {
         PlayerItem currentItem = GameStatus.Instance.PlayerOwningItems.GetPlayerItem(gameObject.name);
+        GameStatus.Instance.Stress += int.Parse(currentItem.GetAttr("Throw Stress"));
+        GameStatus.Instance.Living += int.Parse(currentItem.GetAttr("Throw Living"));
+        GameStatus.Instance.Satisfaction += int.Parse(currentItem.GetAttr("Throw Satisfaction"));
+
         GameStatus.Instance.SetDialogSentence(
             "I feel " +
             currentItem.GetAttr("Dialog 09 Throw Stress") + ". I think my room becomes " +
