@@ -37,7 +37,7 @@ public class PlayerItemBehavious : MonoBehaviour
     public void Organize()
     {
         PlayerItem currentItem = GameStatus.Instance.PlayerOwningItems.GetPlayerItem(gameObject.name);
-        if (currentItem != nulls)
+        if (currentItem != null)
         {
             GameStatus.Instance.Stress += int.Parse(currentItem.GetAttr("Organize Stress"));
             GameStatus.Instance.Living += int.Parse(currentItem.GetAttr("Organize Living"));
