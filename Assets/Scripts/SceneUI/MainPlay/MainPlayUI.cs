@@ -43,11 +43,19 @@ public class MainPlayUI : MonoBehaviour
         print(transform.FindDeepChild("Dialog").name);
 
         Photo = transform.FindDeepChild("Photo").GetComponent<Image>();
-        DisplayImage = transform.FindDeepChild("Dialog").FindDeepChild("Image").gameObject;
-        DialogText = transform.FindDeepChild("Dialog").FindDeepChild("Sentence").GetComponent<TextMeshProUGUI>();
-        TimeText = transform.FindDeepChild("Time").FindDeepChild("Text").GetComponent<TextMeshProUGUI>();
-        OptionPanel = transform.FindDeepChild("Option").gameObject;
-        OptionPrefab = transform.FindDeepChild("Option").FindDeepChild("ButtonSample").gameObject;
+
+        if (transform.FindDeepChild("Dialog"))
+        {
+            DisplayImage = transform.FindDeepChild("Dialog").FindDeepChild("Image").gameObject;
+            DialogText = transform.FindDeepChild("Dialog").FindDeepChild("Sentence").GetComponent<TextMeshProUGUI>();
+        }
+        if (transform.FindDeepChild("Time"))
+            TimeText = transform.FindDeepChild("Time").FindDeepChild("Text").GetComponent<TextMeshProUGUI>();
+        if (transform.FindDeepChild("Option"))
+        {
+            OptionPanel = transform.FindDeepChild("Option").gameObject;
+            OptionPrefab = transform.FindDeepChild("Option").FindDeepChild("ButtonSample").gameObject;
+        }
         GameStatus.Instance.Activate();
         GameStatus.Instance.AnalysisCurrentStatus();
         RefreshUI();
@@ -61,23 +69,27 @@ public class MainPlayUI : MonoBehaviour
 
     void RefreshUI()
     {
+        if (DialogText)
         DialogText.text = GameStatus.Instance.DialogSentence;
-        TimeText.text = GameStatus.Instance.DialogTime;
-        foreach (Transform child in OptionPanel.transform)
-        {
-            if (child.name != "ButtonSample")
-                Destroy(child.gameObject);
-        }
-        if (GameStatus.Instance.PhotoImage)
+        if (TimeText)
+            TimeText.text = GameStatus.Instance.DialogTime;
+        if (OptionPanel)
+            foreach (Transform child in OptionPanel.transform)
+            {
+                if (child.name != "ButtonSample")
+                    Destroy(child.gameObject);
+            }
+        if (Photo && GameStatus.Instance.PhotoImage)
         {
             Photo.sprite = GameStatus.Instance.PhotoImage;
         }
-        if (GameStatus.Instance.DialogImage)
-        {
-            DisplayImage.SetActive(true);
-            DisplayImage.GetComponent<Image>().sprite = GameStatus.Instance.DialogImage;
-        } else
-            DisplayImage.SetActive(false);
+        if (DisplayImage)
+            if (GameStatus.Instance.DialogImage)
+            {
+                DisplayImage.SetActive(true);
+                DisplayImage.GetComponent<Image>().sprite = GameStatus.Instance.DialogImage;
+            } else
+                DisplayImage.SetActive(false);
         if (GameStatus.Instance.options.Count > 0)
         {
             float optionWidth = OptionPanel.GetComponent<RectTransform>().rect.width / GameStatus.Instance.options.Count;

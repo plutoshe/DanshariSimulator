@@ -182,7 +182,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Alice
+  m_Text: Client 3
 --- !u!222 &132189442
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -261,7 +261,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: John
+  m_Text: Client 1
 --- !u!222 &184105606
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 603525549}
   - component: {fileID: 603525548}
   m_Layer: 5
-  m_Name: John
+  m_Name: Client 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -482,7 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b5c663d8a914b4bb1771c4ae49ac16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GotoName: John
+  GotoName: Client 1
   SceneName: CharacterDemonstration
 --- !u!114 &603525549
 MonoBehaviour:
@@ -823,7 +823,7 @@ GameObject:
   - component: {fileID: 1314069142}
   - component: {fileID: 1314069141}
   m_Layer: 5
-  m_Name: Bob
+  m_Name: Client 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -861,7 +861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b5c663d8a914b4bb1771c4ae49ac16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GotoName: Bob
+  GotoName: Client 2
   SceneName: CharacterDemonstration
 --- !u!114 &1314069142
 MonoBehaviour:
@@ -1025,7 +1025,7 @@ GameObject:
   - component: {fileID: 1745604558}
   - component: {fileID: 1745604557}
   m_Layer: 5
-  m_Name: Alice
+  m_Name: Client 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1063,7 +1063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b5c663d8a914b4bb1771c4ae49ac16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GotoName: Alice
+  GotoName: Client 3
   SceneName: CharacterDemonstration
 --- !u!114 &1745604558
 MonoBehaviour:
@@ -1362,7 +1362,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Bob
+  m_Text: Client 2
 --- !u!222 &2020456888
 CanvasRenderer:
   m_ObjectHideFlags: 0
