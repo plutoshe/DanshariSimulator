@@ -18,13 +18,13 @@ public class CharacterDemonstration : MonoBehaviour
         print("Demonstration start");
         photo.sprite = GameStatus.Instance.PhotoImage;
         if (GameStatus.Instance.ExtraValue.ContainsKey("name"))
-            detail.text = "name: " + GameStatus.Instance.ExtraValue["name"];
+            detail.text = "name: " + GameStatus.Instance.ExtraValue["name"] + "\n";
         if (GameStatus.Instance.ExtraValue.ContainsKey("gender"))
-            detail.text += "gender: " + GameStatus.Instance.ExtraValue["gender"];
+            detail.text += "gender: " + GameStatus.Instance.ExtraValue["gender"] + "\n";
         if (GameStatus.Instance.ExtraValue.ContainsKey("age"))
-            detail.text += "age: " + GameStatus.Instance.ExtraValue["age"];
+            detail.text += "age: " + GameStatus.Instance.ExtraValue["age"] + "\n";
         if (GameStatus.Instance.ExtraValue.ContainsKey("background"))
-            background.text = "background: " + GameStatus.Instance.ExtraValue["background"];
+            background.text = "background: " + GameStatus.Instance.ExtraValue["background"] + "\n";
     }
 
     // Update is called once per frame

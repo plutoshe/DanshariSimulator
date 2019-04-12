@@ -2,13 +2,13 @@
   - value:{desire:-1},item:boot,item:a,item:b,item:c,name:John,
     gender:male,background:none,
     photo:osulogo.png
-  - goto:Continue 
+  - goto:JohnItemList
 ###Bob
   - value:{desire:-2},item:desk,item:b,item:c
     photo:hitcircle2.png
-  - goto:Continue
+  - goto:BobItemList
 ###Alice
   - value:{happiness:-3},item:b,item:c
-  - goto:Continue 
+  - goto:AliceItemList
 ###Continue
   - theme:room

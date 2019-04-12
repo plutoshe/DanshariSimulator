@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultMetaDataName: NewOne
+  itemMetaDataName: ItemList
   dayID: 0
   dayStartGotoName:
   - default
@@ -51,6 +52,7 @@ MonoBehaviour:
   - Day3
   DialogSentence: 
   DialogImage: {fileID: 0}
+  PhotoImage: {fileID: 0}
   BackgroundImage: {fileID: 0}
   DialogTime: 
   theme: 

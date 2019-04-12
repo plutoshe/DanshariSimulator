@@ -21,7 +21,7 @@ public class themePanel : MonoBehaviour
             {
                 if (child.tag == "PlayerItem")
                 {
-                    if (!GameStatus.Instance.playerItems.Contains(child.gameObject.name.ToLower()))
+                    if (!GameStatus.Instance.PlayerOwningItems.Contains(child.gameObject.name.ToLower()))
                         child.gameObject.SetActive(false);
                     else
                         child.gameObject.SetActive(true);

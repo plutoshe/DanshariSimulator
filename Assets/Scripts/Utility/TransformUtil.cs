@@ -19,4 +19,12 @@ public static class TransformDeepChildExtension
         return null;
     }
 
+    public static Transform FindDeepParent(this Transform gameObject, string aName)
+    {
+        var parent = gameObject.parent;
+        while (parent != null && parent.name != aName)
+            parent = parent.parent;
+        return parent;
+    }
+
 }
