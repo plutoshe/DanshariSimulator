@@ -52,6 +52,7 @@ public class GraphicsCursor : MonoBehaviour
                 {
                     selectObject = result.gameObject;
                     selectOffset = selectObject.transform.position - Input.mousePosition;
+                    break;
                 }
             if (oldSelectObject && oldSelectObject != selectObject)
                 oldSelectObject.GetComponent<PlayerItemBehavious>().CancelShow();

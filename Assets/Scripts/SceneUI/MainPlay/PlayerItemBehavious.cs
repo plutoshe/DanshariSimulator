@@ -23,6 +23,7 @@ public class PlayerItemBehavious : MonoBehaviour
                 currentItem.GetAttr("Dialog 05 Likability") + ".\n");
         }
         PersonalEventManager.TriggerEvent("RefreshGameStatusUI");
+        transform.Find("OperationPanel").SetAsLastSibling();
         transform.Find("OperationPanel").gameObject.SetActive(true);
         transform.FindDeepChild("Status").GetComponentInChildren<Text>().text =
             "";

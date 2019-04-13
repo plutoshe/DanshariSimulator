@@ -28,6 +28,19 @@ public class ConclusionUI : MonoBehaviour
         return 1;
     }
 
+    string gradeToText(int value)
+    {
+        switch (evaluate(value))
+        {
+            case 5: return "Excellent"; 
+            case 4: return "Good"; 
+            case 3: return "OK"; 
+            case 2: return "Meh"; 
+            case 1: return "Need to be improved"; 
+        }
+        return "";
+    }
+
     string commentOfGrade(int grade)
     {
         if (grade > 12) return "Master of Danshari";
@@ -53,9 +66,9 @@ public class ConclusionUI : MonoBehaviour
             Photo.sprite = GameStatus.Instance.PhotoImage;
         }
         StatusText.text =
-            "Living: " + GameStatus.Instance.Living + "\n\n" +
-            "Stress: " + GameStatus.Instance.Stress + "\n\n" +
-            "Satisfaction: " + GameStatus.Instance.Satisfaction;
+            "Living: " + gradeToText(GameStatus.Instance.Living) + "\n\n" +
+            "Stress: " + gradeToText(GameStatus.Instance.Stress) + "\n\n" +
+            "Satisfaction: " + gradeToText(GameStatus.Instance.Satisfaction);
         calculateGrade();
         GradeCommentText.text = commentOfGrade(grade);
         DialogText.text = GameStatus.Instance.DialogSentence;

@@ -1,14 +1,14 @@
 ###Client 1
   - value:{desire:-1},name:John,
     gender:male,background:none,
-    photo:osulogo.png,scene:MainPlay,
+    photo:osulogo.png,MainPlayScene:MainPlay,
     goto:Client 1ItemList
 ###Client 2
   - value:{desire:-2},
-    photo:hitcircle2.png,
+    photo:hitcircle2.png,MainPlayScene:MainPlayShuang,
     goto:BobItemList
 ###Client 3
-  - value:{happiness:-3},
+  - value:{happiness:-3},MainPlayScene:MainPlayShuang,
     goto:AliceItemList
 ###Continue
   - theme:room
