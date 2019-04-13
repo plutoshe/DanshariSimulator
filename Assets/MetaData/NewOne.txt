@@ -1,13 +1,13 @@
-###John
+###Client 1
   - value:{desire:-1},name:John,
     gender:male,background:none,
-    photo:osulogo.png,
-    goto:JohnItemList
-###Bob
+    photo:osulogo.png,scene:MainPlay,
+    goto:Client 1ItemList
+###Client 2
   - value:{desire:-2},
     photo:hitcircle2.png,
     goto:BobItemList
-###Alice
+###Client 3
   - value:{happiness:-3},
     goto:AliceItemList
 ###Continue

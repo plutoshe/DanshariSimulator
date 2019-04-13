@@ -580,7 +580,7 @@ public class GameStatus : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-            GotoMeta("JohnItemList");
+            GotoMeta("Client 1ItemList");
             for (int i = 0; i < CurrentMeta.Count; i++)
             {
                 print(CurrentMeta[i]);

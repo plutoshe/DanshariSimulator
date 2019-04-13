@@ -11,4 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Conclusion.unity
     guid: f4cbb86fefd0f2f44ab0f39bfd5e5ece
+  - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: 212234fb21dc7dd43a0cc06e79093c8b
+  - enabled: 1
+    path: Assets/Scenes/CharacterDemonstration.unity
+    guid: 892f6a4c53205e5408ba5a3077b73b9f
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/9d1a306357142874599f35db94ae87c4
+    guid: 9d1a306357142874599f35db94ae87c4
+  - enabled: 1
+    path: Assets/Scenes/MainPlay.unity
+    guid: 2ed101697cc7e314a8762d07aabbe236
   m_configObjects: {}
