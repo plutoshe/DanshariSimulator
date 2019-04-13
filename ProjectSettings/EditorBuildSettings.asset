@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CharacterSelection.unity
     guid: d12ee6c18f808394b9d1052b7e8c5d48
+  - enabled: 1
+    path: Assets/Scenes/Conclusion.unity
+    guid: f4cbb86fefd0f2f44ab0f39bfd5e5ece
   m_configObjects: {}
