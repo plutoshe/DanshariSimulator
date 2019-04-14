@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/CharacterDemonstration.unity
     guid: 892f6a4c53205e5408ba5a3077b73b9f
   - enabled: 1
-    path: Assets/Scenes/MainPlay.unity
+    path: Assets/Scenes/MainPlayClient1.unity
     guid: 9d1a306357142874599f35db94ae87c4
   - enabled: 0
     path: 
