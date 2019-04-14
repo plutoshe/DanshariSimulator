@@ -55,8 +55,20 @@ public class PlayerItemBehavious : MonoBehaviour
             finished = true;
             transform.position = transform.FindDeepChild("OrganizedPoint").transform.position;
             CancelShow();
-            transform.SetAsFirstSibling();
+            transform.parent = transform.parent.parent.GetComponent<themePanel>().AfterOrganziedPanel.transform;
+            setIndexForOrganizedPanel();
         }
+    }
+    
+    void setIndexForOrganizedPanel()
+    {
+        int index = 0;
+        foreach (Transform child in transform.parent)
+        {
+            if (child.tag == "PlayerItem")
+                if (child.GetComponent<PlayerItemBehavious>().currentSiblingIndex > currentSiblingIndex) break;
+        }
+        transform.SetSiblingIndex(index);
     }
 
     public void Drop()

@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class themePanel : MonoBehaviour
 {
+    public GameObject AfterOrganziedPanel;
     GameObject ContentPanel;
 
     // Start is called before the first frame update
     void Start()
     {
         ContentPanel = transform.Find("Content").gameObject;
+        AfterOrganziedPanel = transform.Find("AfterOrganized").gameObject;
     }
                 // Update is called once per frame
     void Update()
