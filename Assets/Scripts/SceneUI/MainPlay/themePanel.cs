@@ -11,8 +11,7 @@ public class themePanel : MonoBehaviour
     {
         ContentPanel = transform.Find("Content").gameObject;
     }
-
-    // Update is called once per frame
+                // Update is called once per frame
     void Update()
     {
         ContentPanel.SetActive(transform.name.ToLower() == GameStatus.Instance.theme);
@@ -23,8 +22,9 @@ public class themePanel : MonoBehaviour
                 {
                     if (!GameStatus.Instance.PlayerOwningItems.Contains(child.gameObject.name.ToLower()))
                         child.gameObject.SetActive(false);
-                    else
+                    else {
                         child.gameObject.SetActive(true);
+                    }
                 }
                 else
                     child.gameObject.SetActive(true);

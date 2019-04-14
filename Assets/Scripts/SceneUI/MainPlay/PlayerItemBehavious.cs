@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerItemBehavious : MonoBehaviour
 {
     public bool finished = false;
+    public int currentSiblingIndex = 0;
     public void OnClick()
     {
         if (finished) return;
@@ -23,7 +24,7 @@ public class PlayerItemBehavious : MonoBehaviour
                 currentItem.GetAttr("Dialog 05 Likability") + ".\n");
         }
         PersonalEventManager.TriggerEvent("RefreshGameStatusUI");
-        transform.Find("OperationPanel").SetAsLastSibling();
+        transform.SetAsLastSibling();
         transform.Find("OperationPanel").gameObject.SetActive(true);
         transform.FindDeepChild("Status").GetComponentInChildren<Text>().text =
             "";
@@ -33,6 +34,7 @@ public class PlayerItemBehavious : MonoBehaviour
     public void CancelShow()
     {
         transform.Find("OperationPanel").gameObject.SetActive(false);
+        transform.SetSiblingIndex(currentSiblingIndex);
     }
 
     public void Organize()
@@ -53,6 +55,7 @@ public class PlayerItemBehavious : MonoBehaviour
             finished = true;
             transform.position = transform.FindDeepChild("OrganizedPoint").transform.position;
             CancelShow();
+            transform.SetAsFirstSibling();
         }
     }
 
@@ -82,6 +85,7 @@ public class PlayerItemBehavious : MonoBehaviour
         // Start is called before the first frame update
     void Start()
     {
+        currentSiblingIndex = transform.GetSiblingIndex();
         if (transform.Find("OperationPanel"))
             transform.Find("OperationPanel").gameObject.SetActive(false);
         //GetComponent<Button>().onClick.AddListener(OnClick);
