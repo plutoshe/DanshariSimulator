@@ -23,7 +23,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/MainPlayShuang.unity
     guid: c9ef2c8dc9cde044fa2502107e9f6854
+  - enabled: 1
+    path: Assets/Scenes/MainPlayClient2.unity
+    guid: 41f7db06a5755a2438aedacbbf7b950d
+  - enabled: 1
+    path: Assets/Scenes/MainPlayClient3.unity
+    guid: 620688dcd620d044997a45891178a7a9
   m_configObjects: {}
