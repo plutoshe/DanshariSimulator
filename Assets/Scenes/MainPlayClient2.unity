@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -308,6 +308,405 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5125057880619155778, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5125057880619155778, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243836510986037641, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243836510986037641, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317933914241519076, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317933914241519076, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381908420184709120, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381908420184709120, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3456030315593586236, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3456030315593586236, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458851737637364332, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458851737637364332, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583413079717531186, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583413079717531186, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222832999547106137, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222832999547106137, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6947352317708917172, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4d3ed02b7c8fa3a40a7265b064762ad6,
+        type: 3}
+    - target: {fileID: 343529738878838174, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: box of ramen
+      objectReference: {fileID: 0}
+    - target: {fileID: 523956955988774966, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: box of mixed wires
+      objectReference: {fileID: 0}
+    - target: {fileID: 1070869955512126135, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: sock
+      objectReference: {fileID: 0}
+    - target: {fileID: 1222832999547106136, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: rice cooker
+      objectReference: {fileID: 0}
+    - target: {fileID: 2583413079717531187, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: suvenior mug
+      objectReference: {fileID: 0}
+    - target: {fileID: 2753988168490503132, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: dead plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 3243836510986037640, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: book
+      objectReference: {fileID: 0}
+    - target: {fileID: 3381908420184709121, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: puzzlecube
+      objectReference: {fileID: 0}
+    - target: {fileID: 3456030315593586237, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: laptop
+      objectReference: {fileID: 0}
+    - target: {fileID: 3599085567528310319, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: school binder
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696737877241026964, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: blank cds
+      objectReference: {fileID: 0}
+    - target: {fileID: 3765024841371130442, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: box of playing cards
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317933914241519077, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: switch
+      objectReference: {fileID: 0}
+    - target: {fileID: 4530690971129603359, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: old broken laptop
+      objectReference: {fileID: 0}
+    - target: {fileID: 4920748533290491839, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: loose batteries
+      objectReference: {fileID: 0}
+    - target: {fileID: 5125057880619155779, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: comb
+      objectReference: {fileID: 0}
+    - target: {fileID: 5202685320107875424, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: hat
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214932560993661147, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: plushie
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503617912786696932, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: hair gel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6179664035973478496, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: gutair
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153721606633101547, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: desk lamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458851737637364333, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7458851737637364333, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: favorite mug
+      objectReference: {fileID: 0}
+    - target: {fileID: 7503984581173175974, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: empty bottle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7745314214454327556, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: lava lamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163980929584673932, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: loose trading cards
+      objectReference: {fileID: 0}
+    - target: {fileID: 8262396577778046036, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: coffee maker
+      objectReference: {fileID: 0}
+    - target: {fileID: 8902033707809398746, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: magazines
+      objectReference: {fileID: 0}
+    - target: {fileID: 9112955584347719969, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: empty bottle
+      objectReference: {fileID: 0}
+    - target: {fileID: 343529738878838169, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: eb0cf9b2cfaae8549aa77d78e00a6285,
+        type: 3}
+    - target: {fileID: 523956955988774961, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cebad52ec915ebe4b8195fe3be5419c4,
+        type: 3}
+    - target: {fileID: 1070869955512126128, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 886a7151d0bf64b45989a6181e8ab833,
+        type: 3}
+    - target: {fileID: 1222832999547106143, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: aa52f24d012f9844fa552908a5899e55,
+        type: 3}
+    - target: {fileID: 2583413079717531188, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 29c9023407643284a8585837f54c882f,
+        type: 3}
+    - target: {fileID: 2753988168490503131, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9ea8fa7a16dfe9548a24ad2001bee6c9,
+        type: 3}
+    - target: {fileID: 3243836510986037647, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 775680713ffcb404d850d7dcd65c8a1a,
+        type: 3}
+    - target: {fileID: 3381908420184709126, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fab98eb4493e2c44aa530ef76337406e,
+        type: 3}
+    - target: {fileID: 3456030315593586234, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4de3af05a53c23144ace568a0a6ba45f,
+        type: 3}
+    - target: {fileID: 3599085567528310312, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2470155d076c1704399611683ad5c434,
+        type: 3}
+    - target: {fileID: 3696737877241026963, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 664cc8526ef8a504eacf62953bd14eb8,
+        type: 3}
+    - target: {fileID: 3765024841371130445, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bb1efc3bf0a225e4aba9fb80ce5199ff,
+        type: 3}
+    - target: {fileID: 4317933914241519074, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 58154b0e82a4c80448f7d345e7b6d6c3,
+        type: 3}
+    - target: {fileID: 4530690971129603352, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6396946415aabf54aa56bf29930bf093,
+        type: 3}
+    - target: {fileID: 4920748533290491832, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fe4aba560d3ba98429550740dcff9896,
+        type: 3}
+    - target: {fileID: 5125057880619155780, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7953b27253ef0ab40a7eaa9f863a5409,
+        type: 3}
+    - target: {fileID: 5202685320107875431, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f3dbeaea4c604e048b36c29a5f99b715,
+        type: 3}
+    - target: {fileID: 5214932560993661148, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 2e89ad51edb083149ab8fba3b60e0593,
+        type: 3}
+    - target: {fileID: 5503617912786696931, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5dcec08084ad1664bab1efa0ab160688,
+        type: 3}
+    - target: {fileID: 6179664035973478503, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d0ce1b8781d798943896096e79f42e13,
+        type: 3}
+    - target: {fileID: 7153721606633101548, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 90ec1a65a2fc9f84abb407b69452857f,
+        type: 3}
+    - target: {fileID: 7458851737637364330, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6da90b143ae441b44b5f5b5f9cb175b3,
+        type: 3}
+    - target: {fileID: 7503984581173175969, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 59dbccbdfd8639243b4232b3af5fde8b,
+        type: 3}
+    - target: {fileID: 7745314214454327555, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 33454458908f0664f88cd3e2275c95ff,
+        type: 3}
+    - target: {fileID: 8163980929584673931, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 219d7ec6f1de1454c8c5c23b13d61dbe,
+        type: 3}
+    - target: {fileID: 8262396577778046035, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4dc8b1c961d66f544afb5d6146ca51ad,
+        type: 3}
+    - target: {fileID: 8902033707809398749, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9228659f17d891a43878f00c40cda898,
+        type: 3}
+    - target: {fileID: 9112955584347719974, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bf84e331b7c490241a9be97388926c7b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74d7fa8ac366d0748b26b175e2613aed, type: 3}
 --- !u!1001 &397821836

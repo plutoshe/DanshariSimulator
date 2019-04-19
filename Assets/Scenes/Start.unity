@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1666,3 +1666,120 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 426cc8ea934de634e9cf84a3c8825f4e, type: 3}
+--- !u!1001 &7384306600293999871
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 480777725969993882, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: m_Name
+      value: CharacterManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077261424730327016, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 996.3458
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077261424730327016, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 543.82684
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077261424730327016, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 26.093384
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077261424730327016, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077261424730327016, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077261424730327016, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077261424730327016, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077261424730327016, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077261424730327016, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077261424730327016, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7077261424730327016, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3849521186911592808, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: Marie
+      value: 
+      objectReference: {fileID: 21300000, guid: 0eac62ffb2607774dac78bbeb7017e7f,
+        type: 3}
+    - target: {fileID: 3849521186911592808, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: Issac
+      value: 
+      objectReference: {fileID: 21300000, guid: 5c75aad4bf54dd84cb06a204554a77cb,
+        type: 3}
+    - target: {fileID: 3849521186911592808, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: Susan
+      value: 
+      objectReference: {fileID: 21300000, guid: 1723c58ab5a325b429a396b640c53452,
+        type: 3}
+    - target: {fileID: 3849521186911592808, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: female
+      value: 
+      objectReference: {fileID: 21300000, guid: 2dfb57423b7cfec4bad86900d0d0bad9,
+        type: 3}
+    - target: {fileID: 3849521186911592808, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: male
+      value: 
+      objectReference: {fileID: 21300000, guid: ab01f71b5ce1dbd4fa7b2716a5c282ce,
+        type: 3}
+    - target: {fileID: 3849521186911592808, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: SusanName
+      value: 
+      objectReference: {fileID: 21300000, guid: 006831e2d98a5a04797016c6e2009158,
+        type: 3}
+    - target: {fileID: 3849521186911592808, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: IssacName
+      value: 
+      objectReference: {fileID: 21300000, guid: e391e53a343aae444b259155f82eb6c3,
+        type: 3}
+    - target: {fileID: 3849521186911592808, guid: f37f81486ca45764f9164bbc8a495bef,
+        type: 3}
+      propertyPath: MarieName
+      value: 
+      objectReference: {fileID: 21300000, guid: b4787d5e030ea5b4389be8ff39681401,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f37f81486ca45764f9164bbc8a495bef, type: 3}

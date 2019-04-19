@@ -13,6 +13,18 @@ public class CharacterSelectionButton : MonoBehaviour
     {
         GameStatus.Instance.GotoMeta(GotoName);
         StackSceneManager.Instance.LoadSceneInStack(SceneName);
+        if (GotoName.Contains("1"))
+        {
+            GameObject.Find("CharacterManager").GetComponent<CharacterManager>().name = "marie";
+        }
+        else if( GotoName.Contains("2"))
+        {
+            GameObject.Find("CharacterManager").GetComponent<CharacterManager>().name = "issac";
+        }
+        else if(GotoName.Contains("3"))
+        {
+            GameObject.Find("CharacterManager").GetComponent<CharacterManager>().name = "susan";
+        }
     }
 
     // Start is called before the first frame update
