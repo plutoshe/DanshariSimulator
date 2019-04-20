@@ -5,10 +5,10 @@
     goto:Client 1ItemList
 ###Client 2
   - value:{desire:-2},
-    photo:hitcircle2.png,MainPlayScene:MainPlayClient2,
+    MainPlayScene:MainPlayClient2,background:client221321321,
     goto:Client 2ItemList
 ###Client 3
-  - value:{happiness:-3},MainPlayScene:MainPlayClient3,
+  - value:{happiness:-3},MainPlayScene:MainPlayClient3,background:client3,
     goto:Client 3ItemList
 ###Continue
   - theme:room

@@ -16,6 +16,7 @@ public class themePanel : MonoBehaviour
                 // Update is called once per frame
     void Update()
     {
+        //print(GameStatus.Instance.theme);
         ContentPanel.SetActive(transform.name.ToLower() == GameStatus.Instance.theme);
         if (transform.name.ToLower() == GameStatus.Instance.theme) {
             foreach (Transform child in ContentPanel.transform)

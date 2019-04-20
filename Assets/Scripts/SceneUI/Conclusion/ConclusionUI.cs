@@ -11,8 +11,11 @@ public class ConclusionUI : MonoBehaviour
     Image Photo;
     [HideInInspector]
     TextMeshProUGUI DialogText;
+    //[HideInInspector]
+    //TextMeshProUGUI StatusText;
     [HideInInspector]
-    TextMeshProUGUI StatusText;
+    Text LivingText, StressText, SatisfactionText;
+
     [HideInInspector]
     TextMeshProUGUI GradeCommentText;
 
@@ -65,10 +68,12 @@ public class ConclusionUI : MonoBehaviour
         {
             Photo.sprite = GameStatus.Instance.PhotoImage;
         }
-        StatusText.text =
-            "Living: " + gradeToText(GameStatus.Instance.Living) + "\n\n" +
-            "Stress: " + gradeToText(GameStatus.Instance.Stress) + "\n\n" +
-            "Satisfaction: " + gradeToText(GameStatus.Instance.Satisfaction);
+        LivingText.text =
+            gradeToText(GameStatus.Instance.Living);
+        StressText.text =
+            gradeToText(GameStatus.Instance.Stress);
+        SatisfactionText.text = 
+            gradeToText(GameStatus.Instance.Satisfaction);
         calculateGrade();
         GradeCommentText.text = commentOfGrade(grade);
         DialogText.text = GameStatus.Instance.DialogSentence;
@@ -78,7 +83,11 @@ public class ConclusionUI : MonoBehaviour
     void Start()
     {
         Photo = transform.FindDeepChild("Photo").GetComponent<Image>();
-        StatusText = transform.FindDeepChild("Status").GetComponent<TextMeshProUGUI>();
+        //StatusText = transform.FindDeepChild("Status").GetComponent<TextMeshProUGUI>();
+        LivingText = transform.FindDeepChild("Living").FindDeepChild("Text").GetComponent<Text>();
+        StressText = transform.FindDeepChild("Stress").FindDeepChild("Text").GetComponent<Text>();
+        SatisfactionText = transform.FindDeepChild("Satisfaction").FindDeepChild("Text").GetComponent<Text>();
+
         DialogText = transform.FindDeepChild("Dialog").FindDeepChild("Sentence").GetComponent<TextMeshProUGUI>();
         GradeCommentText = transform.FindDeepChild("Grade").FindDeepChild("Comment").GetComponent<TextMeshProUGUI>();
 
