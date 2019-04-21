@@ -67,6 +67,7 @@ public class PlayerItemBehavious : MonoBehaviour
         {
             if (child.tag == "PlayerItem")
                 if (child.GetComponent<PlayerItemBehavious>().currentSiblingIndex > currentSiblingIndex) break;
+            index++;
         }
         transform.SetSiblingIndex(index);
     }
