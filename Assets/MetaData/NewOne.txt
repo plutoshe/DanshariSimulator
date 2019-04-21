@@ -1,14 +1,17 @@
 ###Client 1
-  - value:{desire:-1},name:John,
-    gender:male,background:none,
+  - value:{desire:-1},
+    gender:male,background:I need my space to be less cluttered and more organized so I can focus on what matters to me. I like to go out with my friends most nights. But I like to stay in and relax sometimes. I want to focus more on my health and fitness.
+,
     MainPlayScene:MainPlayClient1,
     goto:Client 1ItemList
 ###Client 2
   - value:{desire:-2},
-    MainPlayScene:MainPlayClient2,background:client221321321,
+    MainPlayScene:MainPlayClient2,background:I work in the tech industry. I  come home to work on personal projects at night. All of this clutter makes it hard to think. I need a more organized space so I can get more done. My room has a lot of stuff I used to like but feel like I have started to outrow. Can you help me get organized?
+,
     goto:Client 2ItemList
 ###Client 3
-  - value:{happiness:-3},MainPlayScene:MainPlayClient3,background:client3,
+  - value:{happiness:-3},
+MainPlayScene:MainPlayClient3,background:I have spent my whole life collecting beautiful odds and ends. Now that I have grandchildren to watch on the weekends my priorities have changed. I want a nice and organized space that is safe and fun for my grandchildren. ,
     goto:Client 3ItemList
 ###Continue
   - theme:room
