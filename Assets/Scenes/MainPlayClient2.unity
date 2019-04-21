@@ -641,6 +641,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: rice cooker
       objectReference: {fileID: 0}
+    - target: {fileID: 2420972263680514148, guid: 74d7fa8ac366d0748b26b175e2613aed,
+        type: 3}
+      propertyPath: m_Name
+      value: TV
+      objectReference: {fileID: 0}
     - target: {fileID: 2583413079717531187, guid: 74d7fa8ac366d0748b26b175e2613aed,
         type: 3}
       propertyPath: m_Name
