@@ -204,6 +204,7 @@ public class DialogMetaData
 
 public class GameStatus : MonoBehaviour
 {
+    public string DebugItemListName = "Client 1ItemList";
     public string defaultMetaDataName;
     public string itemMetaDataName;
     [HideInInspector]
@@ -580,7 +581,7 @@ public class GameStatus : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-            GotoMeta("Client 1ItemList");
+            GotoMeta(DebugItemListName);
             for (int i = 0; i < CurrentMeta.Count; i++)
             {
                 print(CurrentMeta[i]);
