@@ -7,6 +7,9 @@ using TMPro;
 
 public class ConclusionUI : MonoBehaviour
 {
+    public List<Sprite> gradeImages;
+    //public List<Image> gradeImage1;
+    //public int test1;
     [HideInInspector]
     Image Photo;
     [HideInInspector]
@@ -18,6 +21,8 @@ public class ConclusionUI : MonoBehaviour
 
     [HideInInspector]
     TextMeshProUGUI GradeCommentText;
+    [HideInInspector]
+    Image GradeImage;
 
     int grade = 0;
 
@@ -53,6 +58,22 @@ public class ConclusionUI : MonoBehaviour
 
     }
 
+    string dialogOfGrade(int grade)
+    {
+        if (grade > 12) return "Incredible! You’re a danshari master! You’re ready to take what you’ve learned to the real world!";
+        if (grade > 8) return "Awesome! You’re well on your way to becoming a Danshari Master! Make sure you read each client’s profile so you know exactly what they need.";
+        if (grade > 5) return "Good job, you’re learning a lot! Make sure you pay attention to what your clients think about each object. Is it something they regularly use?";
+        return "You’ve only just started on your danshari journey and have a long way to go! Make sure you pay attention to what your client’s need and don’t… does the item match their priorities?";
+    }
+
+    Sprite generatingImageOfgrade(int grade)
+    {
+        if (grade > 12) return gradeImages[3];
+        if (grade > 8) return gradeImages[2];
+        if (grade > 5) return gradeImages[1];
+        return gradeImages[0];
+    }
+
     void calculateGrade()
     {
         grade =
@@ -76,7 +97,9 @@ public class ConclusionUI : MonoBehaviour
             gradeToText(GameStatus.Instance.Satisfaction);
         calculateGrade();
         GradeCommentText.text = commentOfGrade(grade);
-        DialogText.text = GameStatus.Instance.DialogSentence;
+        DialogText.text = dialogOfGrade(grade);
+        GradeImage.sprite = generatingImageOfgrade(grade);
+        //DialogText.text = GameStatus.Instance.DialogSentence;
     }
 
     // Start is called before the first frame update
@@ -89,6 +112,7 @@ public class ConclusionUI : MonoBehaviour
         SatisfactionText = transform.FindDeepChild("Satisfaction").FindDeepChild("Text").GetComponent<Text>();
 
         DialogText = transform.FindDeepChild("Dialog").FindDeepChild("Sentence").GetComponent<TextMeshProUGUI>();
+        GradeImage = transform.FindDeepChild("Grade").FindDeepChild("Image").GetComponent<Image>();
         GradeCommentText = transform.FindDeepChild("Grade").FindDeepChild("Comment").GetComponent<TextMeshProUGUI>();
 
         refreshUI();
