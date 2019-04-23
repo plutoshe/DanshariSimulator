@@ -29,10 +29,10 @@ public class ConclusionUI : MonoBehaviour
     int evaluate(int value)
     {
         print(value);
-        if (value > 160) return 5;
-        if (value > 120) return 4;
-        if (value > 80) return 3;
-        if (value > 40) return 2;
+        if (value > 80) return 5;
+        if (value > 60) return 4;
+        if (value > 40) return 3;
+        if (value > 20) return 2;
         return 1;
     }
 
@@ -68,9 +68,9 @@ public class ConclusionUI : MonoBehaviour
 
     Sprite generatingImageOfgrade(int grade)
     {
-        if (grade > 12) return gradeImages[3];
-        if (grade > 8) return gradeImages[2];
-        if (grade > 5) return gradeImages[1];
+        if (grade > 7) return gradeImages[3];
+        if (grade > 4) return gradeImages[2];
+        if (grade > 2) return gradeImages[1];
         return gradeImages[0];
     }
 
